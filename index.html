@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lights Out</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">Lights <b>Out</b></div>
+  <nav class="modes" aria-label="modo">
+    <button data-mode="game" class="on">jogo</button>
+    <button data-mode="codes">códigos</button>
+  </nav>
+  <div class="sizes" id="sizes" aria-label="tamanho do tabuleiro">
+    <button data-n="3">3</button><button data-n="4">4</button><button data-n="5" class="on">5</button><button data-n="6">6</button><button data-n="7">7</button>
+  </div>
+</header>
+
+<main class="stage">
+
+  <!-- JOGO -->
+  <section id="gameView" class="view">
+    <div id="board" class="board"></div>
+    <div class="meta"><span id="lit">0</span> acesas &nbsp;·&nbsp; <span id="moves">0</span> cliques</div>
+  </section>
+
+  <!-- CÓDIGOS (Hamming 7,4) -->
+  <section id="codesView" class="view" hidden>
+    <div class="codes">
+      <div class="crow"><span class="clabel">dados</span><div class="rowset" id="rowData"></div></div>
+      <div class="crow"><span class="clabel">enviado</span><div class="rowset" id="rowSent"></div></div>
+      <div class="crow"><span class="clabel">recebido <i>(clique para estragar um bit)</i></span><div class="rowset" id="rowRecv"></div></div>
+      <div class="synd"><span id="syn"></span></div>
+    </div>
+  </section>
+
+  <div id="status" class="status"></div>
+
+  <div class="actions">
+    <button data-modes="game" id="bHint">dica</button>
+    <button data-modes="game" id="bApply">resolver</button>
+    <button data-modes="game codes" id="bNew">novo</button>
+    <button data-modes="codes" id="bFix">corrigir</button>
+    <button data-modes="game codes" id="bAlg" class="alg">álgebra</button>
+  </div>
+</main>
+
+<aside id="drawer" class="drawer" aria-hidden="true">
+  <button class="close" id="drawerClose" aria-label="fechar">×</button>
+  <div id="drawerBody"></div>
+</aside>
+
+<script src="lights.js"></script>
+<script src="hamming.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
